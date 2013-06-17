@@ -3,7 +3,7 @@
 
 UNAME     = $(shell uname)
 LINKFLAGS = -g -ggdb -lm
-CFLAGS    = -Wall -pedantic -I. -I.. -g -ggdb -DDEBUG
+CFLAGS    = -Wall -pedantic -I. -g -ggdb -DDEBUG
 
 ifeq ($(UNAME), QNX)
 	PLATTFORM = QNX
@@ -40,14 +40,14 @@ ifeq ($(PLATTFORM), WINDOWS)
 	LINKFLAGS += -L. -I./include -lpthreadGC2
 endif
 
-EXE_PROGS = answer
+EXE_PROGS = demo
 SRC_PROGS = $(EXE_PROGS:%=%.c)
 OBJ_PROGS = $(EXE_PROGS:%=%.o)
 
 SRC_NMQUEUE = $(wildcard src/*.c)
 OBJ_NMQUEUE = $(SRC_NMQUEUE:%.c=%.o)
 
-SRC_TOOLS = $(wildcard ../tools/*.c)
+SRC_TOOLS = $(wildcard tools/*.c)
 OBJ_TOOLS = $(SRC_TOOLS:%.c=%.o)
 
 SRC_TESTS = $(wildcard tests/*.c)
